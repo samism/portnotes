@@ -1,0 +1,45 @@
+
+span#page-title {
+	display: inline-block;
+	max-width: 75%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+span#page-title br {
+	display: none;
+}
+
+
+span#nb {
+	text-align: left;
+}
+
+section#note {
+	min-height: 700px;
+	padding: 0 5px;
+	margin: 0;
+	overflow: auto;
+	background-image: url('../img/regular-paper.jpg');
+	background-repeat: repeat-y;
+	background-size: 100%;
+	color: black;
+	font-family: Arial, serif;
+	line-height: 1.965em;
+}
+
+section#text-area * {
+	padding: 0;
+	margin: 0;
+}
+
+section#buttons {
+	border: 1px solid gray;
+	font-family: times new roman, sans-serif;
+	padding: 5px;
+	
+}
+
+a {
+	color: gray;
+}
