@@ -1,0 +1,14 @@
+body {
+	background-color: #333;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.glyphicon {
+        position: relative;
+	top: -.5px;
+}
+
+h1 {
+	color: white;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- the cascade of styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/universal.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <title>Portnotes | Password Reset</title>
+</head>
+<body>
+  <h1 class="page-header">Password Reset</h1>
+  <!--<ol class="breadcrumb">
+      <li class="active"><a href="/">Home</a></li>
+    </ol>-->
+	 
+  <form name="Password Request" action="/forgotpass" method="post" class="login">
+    
+	<div >
+   <div class="input-group input-group-lg ">
+         <span class="input-group-addon glyphicon glyphicon-envelope" id="envelope"></span>
+        <input class="form-control " type="text" name="login" id="login" placeholder="Email" required>
+      </div>
+	   <div class="input-group input-group-lg centered">
+        <button class="form-control login-button  btn " type="submit" style="border-radius: 8px">Submit</button>
+      </div>
+	  </div>
+ </form>
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!--Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+        <script>
+	  $('#login').focus(function(e){
+            $('#envelope')[0].style.color = '#009ACD';
+          })
+          $('#login').focusout(function(e){
+            $('#envelope')[0].style.color = '#404040';
+          })
+	</script>
+</body>
+</html>
