@@ -9,6 +9,7 @@
     <!-- the cascade of styles -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/universal.css">
+	  <link rel="stylesheet" href="universal.css">
     <link rel="stylesheet" href="../css/index.css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -20,7 +21,21 @@
       <li class="active"><a href="/">Home</a></li>
     </ol>-->
     <h1 class="page-header">Settings</h1>
-
+ <div class="input-group input-group-lg space">
+        <span class="input-group-addon glyphicon glyphicon-question-sign" id="question"></span>
+        <input class="form-control" type="text" placeholder="Current Password" name="opass" id="login" required>
+      </div>
+	  <div class="input-group input-group-lg space">
+        <span class="input-group-addon glyphicon glyphicon-question-sign" id="question"></span>
+        <input class="form-control" type="text" placeholder="New Password" name="npass" id="New" required>
+      </div>
+	   <div class="input-group input-group-lg space">
+        <span class="input-group-addon glyphicon glyphicon-ok-sign" id="question"></span>
+        <input class="form-control" type="text" placeholder="Confirm" name="ncpass" id="confirm" required>
+      </div>
+	      <div class="input-group input-group-lg">
+        <button class="form-control" type="submit" class="submitpass-button" style="border-radius: 8px">Submit</button>
+      </div>
     <!-- Which settings, and what is the best way to implement this? -->
 
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
