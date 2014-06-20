@@ -12,3 +12,11 @@ body {
 h1 {
 	color: white;
 }
+
+.default-iconCol{
+        color: #404040;
+}
+
+.blue-iconCol{
+        color: #009ACD;
+}

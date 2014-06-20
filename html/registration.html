@@ -64,22 +64,28 @@
     <script>
     //confirm password
     $('#email').focus(function(e){
-        $('#envelope')[0].style.color = '#009ACD';
+        $('#envelope').removeClass('default-iconCol');
+        $('#envelope').addClass('blue-iconCol');
     })
     $('#email').focusout(function(e){
-        $('#envelope')[0].style.color = '#404040';
+        $('#envelope').removeClass('blue-iconCol');
+        $('#envelope').addClass('default-iconCol');
     })
     $('#password').focus(function(e){
-        $('#lock')[0].style.color = '#009ACD';
+        $('#lock').removeClass('default-iconCol');
+        $('#lock').addClass('blue-iconCol');
     })
     $('#password').focusout(function(e){
-        $('#lock')[0].style.color = '#404040';
+        $('#lock').removeClass('blue-iconCol');
+        $('#lock').addClass('default-iconCol');
     })
     $('#confpassword').focus(function(e){
-        $('#lock2')[0].style.color = '#009ACD';
+        $('#lock2').removeClass('default-iconCol');
+        $('#lock2').addClass('blue-iconCol');
     })
     $('#confpassword').focusout(function(e){
-        $('#lock2')[0].style.color = '#404040';
+        $('#lock2').removeClass('blue-iconCol');
+        $('#lock2').addClass('default-iconCol');
     })
     $('#confpassword').keyup(function(e){
       var pass1 = $('#password').val();
