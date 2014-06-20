@@ -30,6 +30,7 @@ class PortApp(object):
     except Exception, e:
       print "Database error: %s" % str(e)
 
+  '''Random password is generated'''
   def generate_pass(self):
     characters = string.ascii_letters + string.digits
     password =  "".join(choice(characters) for x in range(randint(8, 16)))
@@ -230,3 +231,4 @@ error(404)(portapp.error404)
 
 run(host='162.243.231.223', port=8080, debug=True, reloader=True)
 #run(host='localhost', port=8080, debug=True, reloader=True)
+
