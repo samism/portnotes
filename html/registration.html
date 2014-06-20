@@ -62,6 +62,7 @@
     <!--Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
     <script>
+    $(document).ready(function() {
     //confirm password
     $('#email').focus(function(e){
         $('#envelope').removeClass('default-iconCol');
@@ -136,6 +137,7 @@
       if($('#no_match').is(':visible') || $('#pass_bad').is(':visible') || $('#email').val() === "")
         e.preventDefault();
     })
+    });
     </script>
   </body>
 </html>

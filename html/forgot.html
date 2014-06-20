@@ -36,12 +36,16 @@
     <!--Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
         <script>
+	  $(document).ready(function() {
 	  $('#login').focus(function(e){
-            $('#envelope')[0].style.color = '#009ACD';
+	    $('#envelope').removeClass('default-iconCol');
+            $('#envelope').addClass('blue-iconCol');
           })
           $('#login').focusout(function(e){
-            $('#envelope')[0].style.color = '#404040';
+	    $('#envelope').removeClass('blue-iconCol');
+            $('#envelope').addClass('default-iconCol');
           })
+	  });
 	</script>
 </body>
 </html>
