@@ -76,11 +76,22 @@ class PortApp(object):
     else:
       return re.sub('">alert_here', ' alert-danger">You are not logged in.', self.alert_html)
 
+  def update_loggedin(self, email):
+    try:
+      self.cur.execute("update users set logged_in = '%s' where user_email = '%s'" % (0, email))
+      self.db.commit()
+    except Exception, e:
+      "Database Error: %s" % str(e)
+
   def login(self):
     email = request.get_cookie("account")
     response.delete_cookie("account")
-    self.cur.execute("update users set logged_in = '%s' where user_email = '%s'" % (0, email))
-    self.db.commit()
+    try:
+      self.update_loggedin(email)
+    except MySQLdb.OperationalError, e:
+      self.db_connect()
+      self.update_loggedin(email)
+
     login_page = open('html/index.html', 'rU').read()
     return login_page
 
@@ -217,5 +228,5 @@ route("/home")(portapp.home)
 
 error(404)(portapp.error404)
 
-run(host='162.243.231.223', port=8080, debug=True, reloader=True)
-#run(host='localhost', port=8080, debug=True, reloader=True)
+#run(host='162.243.231.223', port=8080, debug=True, reloader=True)
+run(host='localhost', port=8080, debug=True, reloader=True)
