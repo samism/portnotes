@@ -5,7 +5,7 @@ from random import *
 import MySQLdb 
 import hashlib, uuid
 import smtplib
-import string, re
+import string, re, time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -101,7 +101,10 @@ class PortApp(object):
     if self.check_login(username, password):
       if self.check_active(username):
         response.set_cookie("account", username)
+        last_time = time.strftime("%Y/%m/%d %H:%M:%S")
         self.cur.execute("update users set logged_in = '%s' where user_email = '%s'" % (1, username))
+        self.db.commit()
+        self.cur.execute("update users set last_seen = '%s' where user_email = '%s'" % (last_time, username))
         self.db.commit()
         redirect('/home')
       else:
