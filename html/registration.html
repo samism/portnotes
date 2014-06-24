@@ -93,11 +93,11 @@
       var pass2 = $('#confpassword').val();
       var mail = $('#email').val();
       if(pass1 !== pass2){
-        $('#no_match').show();
-        $('#match').hide();
+        $('#match').slideUp();
+        $('#no_match').slideDown();
       } else {  
-        $('#no_match').hide();
-        $('#match').show();
+        $('#no_match').slideUp();
+        $('#match').slideDown();
       }
     })
 
@@ -108,21 +108,21 @@
       var hasNumbers = /\d/.test(password);
       var hasNonalphas = /\W/.test(password);
       if (!hasUpperCase)
-        $('#pass_up').show();
+        $('#pass_up').slideDown();
       else
-        $('#pass_up').hide();
+        $('#pass_up').slideUp();
       if (!hasNumbers)
-        $('#pass_num').show();
+        $('#pass_num').slideDown();
       else
-        $('#pass_num').hide();
+        $('#pass_num').slideUp();
       if (!hasNonalphas)
-        $('#pass_special').show();
+        $('#pass_special').slideDown();
       else
-        $('#pass_special').hide();
+        $('#pass_special').slideUp();
       if (password.length < 6)
-        $('#pass_long').show();
+        $('#pass_long').slideDown();
       else
-        $('#pass_long').hide();
+        $('#pass_long').slideUp();
       if (hasUpperCase + hasNumbers + hasNonalphas == 3 && password.length >= 6){
         $('#pass_ok').show();
         $('#pass_bad').hide();
