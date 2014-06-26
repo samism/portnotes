@@ -37,19 +37,19 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-<form>               
+            
 			   <ul class="nav navbar-nav">
-                    <li><a id="login1" href="#">Login</a></li>
+                    <li><a id="loginbut" href="#">Login</a></li>
                     <li><a id="regbut" href="#">Registration</a></li>
 					
-					<form id="flogin" method="post" action="/login" class="login">
+					<form id="login-form" action="/login" method="post">
 						<li><input type="text"></li>
 						<li><input type="password"></li>
 						<li><button type="submit">login</button></li>
 					</form>
 					
-					<form id="reg-form"  action="/register" method="post">
-					<li><li><input type="text"></li>
+					<form  id="reg-form"  action="/register" method="post">
+					<li><input type="text"></li>
 					<li><input type="password"></li>
 					<li><button type="submit">register</button></li>
 					</form>
@@ -68,7 +68,7 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Portnotes</h1>
-                        <h3>Innovative. Convenient. Sleek.</h3>
+                        <h3>Innovative. Convenient. Simple.</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
@@ -214,13 +214,14 @@
 	$(document).ready(function(){
 		
 		$("#reg-form").hide();
+		
 		$("#regbut").click(function(){
 			$("#reg-form").show();
-			$("#flogin").hide();
+			$("#login-form").hide();
 		});
 
-		$("#login1").click(function(){
-				$("#flogin").show();
+		$("#loginbut").click(function(){
+				$("#login-form").show();
 			$("#reg-form").hide();
 		
 		});
