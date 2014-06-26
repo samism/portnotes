@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Portnotes | Login</title>
+    <title>Portnotes | Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -18,6 +18,7 @@
 
     <!-- Add custom CSS here -->
     <link href="css/landing-page.css" rel="stylesheet">
+
 
 </head>
 
@@ -36,13 +37,22 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#about">About</a>
-                    </li>
-                    <li><a href="#services">Services</a>
-                    </li>
-                    <li><a href="#contact">Contact</a>
-                    </li>
+<form>               
+			   <ul class="nav navbar-nav">
+                    <li><a id="login1" href="#">Login</a></li>
+                    <li><a id="regbut" href="#">Registration</a></li>
+					
+					<form id="flogin" method="post" action="/login" class="login">
+						<li><input type="text"></li>
+						<li><input type="password"></li>
+						<li><button type="submit">login</button></li>
+					</form>
+					
+					<form id="reg-form"  action="/register" method="post">
+					<li><li><input type="text"></li>
+					<li><input type="password"></li>
+					<li><button type="submit">register</button></li>
+					</form>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -57,8 +67,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Landing Page</h1>
-                        <h3>A Template by Start Bootstrap</h3>
+                        <h1>Portnotes</h1>
+                        <h3>Innovative. Convenient. Sleek.</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
@@ -86,9 +96,9 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Death to the Stock Photo:
-                        <br>Special Thanks</h2>
-                    <p class="lead">A special thanks to Death to the Stock Photo for providing the photographs that you see in this template. <a target="_blank" href="http://join.deathtothestockphoto.com/">Visit their website</a> to become a member.</p>
+                    <h2 class="section-heading">Portnotes: An excellent way to take notes.
+                        <br>Designed for students.</h2>
+                    <p class="lead">Portnotes is the new way to keep track of notes. It's loaded with convenient features and templates that help students keep an organized and clean look paper free.<a target="_blank" href="http://join.deathtothestockphoto.com/">Visit their website</a> to become a member.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/ipad.png" alt="">
@@ -109,9 +119,10 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups
-                        <br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by PSDCovers! <a target="_blank" href="http://www.psdcovers.com/">Visit their website</a> to download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">Our Mission</h2>
+                    <p class="lead">Being college students can be very stressful. We decided to make an application that takes a little stress out of the day.
+					We designed an aesthetically pleasing and simple way to access all your notes in an organized dashboard. You can view all your notebooks and look at all your notes with a click of a button. A great variety of templates, such as cornell notes and graphing paper, are available to choose from.
+					The best part is the sleek design, and no paper!</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <img class="img-responsive" src="img/doge.png" alt="">
@@ -132,9 +143,8 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Google Web Fonts and
-                        <br>Font Awesome Icons</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                    <h2 class="section-heading">About The Authors</h2>
+                    <p class="lead">Sameer<br>Geet<br>Jeff</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/phones.png" alt="">
@@ -199,6 +209,26 @@
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
+	<script>
+	
+	$(document).ready(function(){
+		
+		$("#reg-form").hide();
+		$("#regbut").click(function(){
+			$("#reg-form").show();
+			$("#flogin").hide();
+		});
+
+		$("#login1").click(function(){
+				$("#flogin").show();
+			$("#reg-form").hide();
+		
+		});
+		
+	});
+	
+	
+	</script>
 
 </body>
 
