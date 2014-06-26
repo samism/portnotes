@@ -85,14 +85,17 @@ class PortApp(object):
 
   def do_settings(self):
     user_email = request.get_cookie("account")
+    original_pass = request.forms.get('pass')
     new_pass = request.forms.get('newpass')
-    print new_pass
-    try:
-      self.cur.execute("update users set user_password_hash = '%s' where user_email = '%s'" % (hashlib.sha512(new_pass).hexdigest(), user_email))
-      self.db.commit()
-      return re.sub('">alert_here', ' alert-success">Congratulations, password has successfully been updated.', self.alert_html)
-    except Exception, e:
-      return re.sub('">alert_here', ' alert-danger">Could not change password: ' + str(e), self.alert_html)
+    
+    if self.check_login(user_email, original_pass):
+      try:
+        self.cur.execute("update users set user_password_hash = '%s' where user_email = '%s'" % (hashlib.sha512(new_pass).hexdigest(), user_email))
+        self.db.commit()
+        return re.sub('">alert_here', ' alert-success">Congratulations, password has successfully been updated.', self.alert_html)
+      except Exception, e:
+        return re.sub('">alert_here', ' alert-danger">Could not change password: ' + str(e), self.alert_html)
+    return re.sub('">alert_here', ' alert-danger">Sorry, incorrect password entered.', self.alert_html)
 
   def update_loggedin(self, email):
     try:
