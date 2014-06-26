@@ -70,12 +70,32 @@ class PortApp(object):
   def server_fonts(self, filename):
     return static_file(filename, root='fonts')
 
-  def home(self):
+  def logged_routes(self, filename):
     user_email = request.get_cookie("account")  
     if user_email and self.logged_in(user_email):
-      return self.open_file('html/dash.html')
+      return self.open_file(filename)
     else:
       return re.sub('">alert_here', ' alert-danger">You are not logged in.', self.alert_html)
+
+  def home(self):
+    return self.logged_routes('html/dash.html')
+
+  def settings(self):
+    return self.logged_routes('html/settings.html')
+
+  def do_settings(self):
+    user_email = request.get_cookie("account")
+    original_pass = request.forms.get('pass')
+    new_pass = request.forms.get('newpass')
+    
+    if self.check_login(user_email, original_pass):
+      try:
+        self.cur.execute("update users set user_password_hash = '%s' where user_email = '%s'" % (hashlib.sha512(new_pass).hexdigest(), user_email))
+        self.db.commit()
+        return re.sub('">alert_here', ' alert-success">Congratulations, password has successfully been updated.', self.alert_html)
+      except Exception, e:
+        return re.sub('">alert_here', ' alert-danger">Could not change password: ' + str(e), self.alert_html)
+    return re.sub('">alert_here', ' alert-danger">Sorry, incorrect password entered.', self.alert_html)
 
   def update_loggedin(self, email):
     try:
@@ -229,6 +249,8 @@ route("/validate/<email>/<valid_key>")(portapp.check_key)
 get("/forgotpass")(portapp.forgotpass)
 post("/forgotpass")(portapp.sendpass)
 route("/home")(portapp.home)
+get("/settings")(portapp.settings)
+post("/settings")(portapp.do_settings)
 
 error(404)(portapp.error404)
 
